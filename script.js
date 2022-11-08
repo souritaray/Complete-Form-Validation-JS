@@ -31,10 +31,17 @@ function passwordConfirmation(){
     })
 }
 
-function submitForm(){   
-EmailValidation();
-UserNameValidation();
+function submitForm(){  
+    if(name1.value=="" && mailId.value==""){
+        alert("enter your details");
+    }
+    else{
+        EmailValidation();
+        UserNameValidation();
+    }
+
 }
+
 
 //Email Validation
 function EmailValidation(){
@@ -80,12 +87,42 @@ function EmailValidation(){
 
 function UserNameValidation(){
     let val=name1.value;
-    let regName = /^[a-z ,.'-]+$/i;                                  
- 
-                if (val == "" || regName.test(val)) {
-                    window.alert("Please enter your name properly.");
-                    name1.focus();
-                    return false;
+
+    // Username checking using RegExp
+    // ---------------------------------------------------------------------------------------
+    // let regName = /^[a-z ,.'-]+$/i;                                  
+                // if (val == "" || regName.test(val)) {
+                //     window.alert("Please enter your name properly.");
+                //     name1.focus();
+                //     return false;
+                // }
+
+                // Username checking without using RegExp
+    // ---------------------------------------------------------------------------------------
+                let c=0;
+                let alph='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                if(val==""){
+                    alert("Please enter your name properly");
+                    name1.focus;
                 }
+                for(let j=0;j<val.length;j++){
+                    for(let i=0;i<alph.length;i++){
+                        
+                        if(val.charAt(j)==alph.charAt(i) || val.charAt(j)=="'"){
+                            return true;
+                        }
+                        else{
+                            c=c+1;
+                        }
+                    }
+                }
+                if(c>0){
+                    alert("Please enter your name properly");
+                            name1.focus;
+                            return false;
+                }
+                
+                
+                
     
 }
