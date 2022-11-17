@@ -20,48 +20,39 @@
 </head>
 <body>
   
-<div class="container" >
     <div class="form-head">
-        <div>
+        <div id="heading">
             Registration Form 
         </div>
         <div class="form-body">
             <div class="username">
-                <div>Name</div>
+                <div class="labels">Name</div>
                  <input type="text" id="name" class="dash"  />
             </div>
              <div class="email">
-                <div>Email Address</div>
+                <div class="labels">Email Address</div>
                  <input type="email" id="mail_id" class="dash" placeholder="eg. someone@mail.com " />
             </div>
             
             <div class="password">
-                <div>Password </div>
+                <div class="labels">Password </div>
                 <input type="password" id="pass" class="dash" onkeyup="checkPassword(this.value)"  />
             </div>
             <div class="re-password">
-                <div>Re-enter Password </div>
+                <div class="labels">Re-enter Password </div>
                 <input type="password" id="re-pass" class="dash" />
             </div>
 
-            <div class="tc">
-                <input type="checkbox" class="border-sky-400 " value="" />
-                <div class="px-3 text-gray-500">
-                    I accept terms & conditions 
-                </div>
-            </div> -->
+            
              <div class="button">
                 <button class="submit" onclick="submitForm()">
-                    Sign Up
+                    Submit
                 </button>
             </div> 
-             <div class="flex justify-center ">
-                <p class="text-gray-500">Already have an acount? </p>
-                <a href="" class="text-sky-600 pl-2"> Sign In</a>
-            </div>
+             
         </div>
     </div>
-</div>
+
     <script id="script-js" src="script.js"></script>
 </body>
 </html>
