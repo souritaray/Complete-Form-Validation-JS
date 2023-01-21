@@ -32,17 +32,25 @@ function passwordConfirmation(){
 }
 
 function submitForm(){  
-    if(name1.value=="" && mailId.value==""){
-        alert("enter your details");
-    }
-    else{
-        EmailValidation();
-        UserNameValidation();
-    }
+   let x=check();
+   if(x==true){
+    alert("form submitted successfully");
+    window.location="thankyou.html";
+   }
+   
 
 }
 
-
+function check(){
+    let x=EmailValidation();
+     let y=  UserNameValidation();
+     if(x==true && y==true){
+        return true;
+     }
+     else{
+        return false;
+     }
+}
 //Email Validation
 function EmailValidation(){
         let email=mailId.value;
@@ -55,6 +63,9 @@ function EmailValidation(){
             alert("Invalid Email Address.");
             mailId.focus();
             return false;
+        }
+        else{
+            return true;
         }
 //Email validation without RegEx
 //-----------------------------------------------------------------------------
@@ -91,38 +102,46 @@ function UserNameValidation(){
     // Username checking using RegExp
     // ---------------------------------------------------------------------------------------
     // let regName = /^[a-z ,.'-]+$/i;                                  
-                // if (val == "" || regName.test(val)) {
-                //     window.alert("Please enter your name properly.");
-                //     name1.focus();
-                //     return false;
-                // }
+    //             if (val == "" || regName.test(val)) {
+    //                 alert("Please enter your name properly.");
+    //                 name1.focus();
+    //                 return false;
+    //             }
 
                 // Username checking without using RegExp
     // ---------------------------------------------------------------------------------------
                 let c=0;
                 let alph='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                 if(val==""){
-                    alert("Please enter your name properly");
+                    alert("Please enter your name");
                     name1.focus;
+                    return false;
                 }
-                for(let j=0;j<val.length;j++){
-                    for(let i=0;i<alph.length;i++){
-                        
-                        if(val.charAt(j)==alph.charAt(i) || val.charAt(j)=="'"){
-                            return true;
+                else{
+                    for(let i=0;i<val.length;i++){
+                        if(((isNaN(val.charAt(i)))==true) || val.charAt(i)==" " || val.charAt(i)=="'"){
+                            continue;
                         }
                         else{
                             c=c+1;
                         }
                     }
+    
+                    if(c!=0){
+                        alert("Please enter your name properly");
+                        name1.focus;
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
                 }
-                if(c>0){
-                    alert("Please enter your name properly");
-                            name1.focus;
-                            return false;
-                }
+                
+               
+
+                
                 
                 
                 
     
-}
+ }
