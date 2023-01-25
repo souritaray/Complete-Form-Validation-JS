@@ -65,3 +65,23 @@ button:hover{
     color:black;
     font-weight: bold;
 }
+
+/* Responsiveness */
+
+@media only screen and (max-width:1100px) and (min-width:500px){
+    .form-head{
+        width:70%;
+    }
+}
+@media only screen and (max-width:490px) and (min-width:250px){
+    .form-head{
+        width:80%;
+    }
+    .dash{
+        width:80%;
+    }
+    .submit{
+        width:100px;
+        font-size: 15px;
+    }
+}
